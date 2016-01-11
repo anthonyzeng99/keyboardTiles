@@ -16,17 +16,33 @@ void draw() {
   }
 }
 
-float[] pitches = {60,62,64};
-double[] dynamics = {100,100,100};
-double[] durations = {1,1,1};
-
-
-
-void keyPressed()
-{
-  sc.playNote(furElise[counter][0], 100, furElise[counter][1]);
-  counter++;
-  if (counter == furElise.length) {
+void keyPressed() {
+  if (key == tileAKey || key == tileAKey - 32) {
+    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+    counter++;
+    if (counter == maryLittleLamb.length) {
       counter = 0;
+    }
+  }
+  if (key == tileBKey || key == tileBKey - 32) {
+    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+    counter++;
+    if (counter == maryLittleLamb.length) {
+      counter = 0;
+    }
+  }
+  if (key == tileCKey || key == tileCKey - 32) {
+    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+    counter++;
+    if (counter == maryLittleLamb.length) {
+      counter = 0;
+    }
+  }
+  if (key == tileDKey || key == tileDKey - 32) {
+    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+    counter++;
+    if (counter == maryLittleLamb.length) {
+      counter = 0;
+    }
   }
 }

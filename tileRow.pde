@@ -1,3 +1,4 @@
-public class tileRow {
-  int[] activeIndex;
+
+class tileRow {
+  int[] activeTileIndex;
 }
