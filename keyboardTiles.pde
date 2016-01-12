@@ -9,8 +9,8 @@ void setup(){
 
 void draw() {
   if (counter % 2 == 0) {
-   background(255,255,255); 
-   rect(240,360,50,50);
+   background(255,255,255,360); 
+   tileRow hello = new tileRow();
   } else {
     background(255,255,255); 
   }
