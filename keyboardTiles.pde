@@ -1,4 +1,5 @@
 int counter = 0;
+int[] tilePositions;
 
 SoundCipher sc = new SoundCipher(this);
 
@@ -13,6 +14,12 @@ void draw() {
    tileRow hello = new tileRow();
   } else {
     background(255,255,255); 
+  }
+}
+
+void filltiles() {
+  for (int i = 0; i < 50000; i ++){
+    tilePositions[i] = random(0,4);
   }
 }
 
