@@ -1,11 +1,12 @@
-int counter = 0;
+
+int counter;
 int[] tilePositions;
-int tileIndex;
+int tilePositionIndex; 
 
 SoundCipher sc = new SoundCipher(this);
 
-void fillTiles() {
-  for (int i = 0; i < 50000; i ++){
+void fillTilePositions() {
+  for (int i = 0; i < tilePositions.length; i ++){
     tilePositions[i] = (int)(random(0,4));
   }
 }
@@ -13,7 +14,9 @@ void fillTiles() {
 
 void setup(){
   size(480, 720);
-  fillTiles();
+  tilePositions = new int[50000];
+  fillTilePositions();
+  tilePositionIndex = 0;
 }
 
 
@@ -27,34 +30,54 @@ void draw() {
   line(0,180,480,180);
   line(0,360,480,360);
   line(0,540,480,540);
+  for (int tileNum = 0; tileNum < 4; tileNum++) {
+      int xCor = (tilePositions[tilePositionIndex + tileNum]) *120 - 1;
+      int yCor = (3 - tileNum) * 180;
+      rect(xCor,yCor,120.75,179);
+      fill(#000000);
+      
+  }
+  
 }
 
 
 void keyPressed() {
   if (key == tileAKey || key == tileAKey - 32) {
-    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-    counter++;
+    if (tilePositions[tilePositionIndex] == 0) {
+        sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+        counter++;
+        tilePositionIndex++;
+    }
     if (counter == maryLittleLamb.length) {
       counter = 0;
     }
   }
   if (key == tileBKey || key == tileBKey - 32) {
-    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-    counter++;
+    if (tilePositions[tilePositionIndex] == 1) {
+        sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+        counter++;
+        tilePositionIndex++;
+    }
     if (counter == maryLittleLamb.length) {
       counter = 0;
     }
   }
   if (key == tileCKey || key == tileCKey - 32) {
-    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-    counter++;
+    if (tilePositions[tilePositionIndex] == 2) {
+        sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+        counter++;
+        tilePositionIndex++;
+    }
     if (counter == maryLittleLamb.length) {
       counter = 0;
     }
   }
   if (key == tileDKey || key == tileDKey - 32) {
-    sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-    counter++;
+    if (tilePositions[tilePositionIndex] == 3) {
+        sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
+        counter++;
+        tilePositionIndex++;
+    }
     if (counter == maryLittleLamb.length) {
       counter = 0;
     }
