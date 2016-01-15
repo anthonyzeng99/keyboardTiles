@@ -1,45 +1,16 @@
-double[][] maryLittleLamb;
-
-double[][][] musicList = {
-  maryLittleLamb,
-};
-
- maryLittleLamb = {
-  {64, 0.25}, 
-  {62, 0.25},
-  {60, 0.25},
-  {62, 0.25},
-  {64, 0.25},
-  {64, 0.25},
-  {64, 0.5},
-  {62, 0.25},
-  {62, 0.25},
-  {62, 0.5},
-  {64, 0.25},
-  {67, 0.25},
-  {67, 0.5},
-  {64, 0.25},
-  {62, 0.25},
-  {60, 0.25},
-  {62, 0.25},
-  {64, 0.25},
-  {64, 0.25},
-  {64, 0.25},
-  {62, 0.25},
-  {62, 0.25},
-  {64, 0.25},
-  {62, 0.25},
-  {60, 1.0},
-};
-
-furElise = {
-   {76, 0.25},
-   {75, 0.25},
-   {76, 0.25},
-   {75, 0.25},
-   {76, 0.25},
-   {71, 0.25},
-   {73, 0.25},
-   {72, 0.25},
-   {69, 0.25},
-};
+class Music {
+    double[] notes;
+    double[] beats;
+    
+    Music(double[][] song) {
+      for (int index = 0; index < notes.length; index++) {
+       this.notes[index] = song[index][0];
+       this.beats[index] = song[index][1];
+      }
+    }
+    
+    void randomPiece() {
+      
+    }
+    
+}
