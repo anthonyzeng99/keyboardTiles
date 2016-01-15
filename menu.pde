@@ -1,4 +1,4 @@
-public class button
+/*public class button
 {
  boolean overClassic = false;
  boolean overArcade = false;
@@ -12,3 +12,5 @@ void update(int x, int y, int
 
 
 }
+*/
++0

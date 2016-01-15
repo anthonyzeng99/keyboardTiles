@@ -1,5 +1,10 @@
+double[][] maryLittleLamb;
 
-double[][] maryLittleLamb = {
+double[][][] musicList = {
+  maryLittleLamb,
+};
+
+ maryLittleLamb = {
   {64, 0.25}, 
   {62, 0.25},
   {60, 0.25},
@@ -27,7 +32,7 @@ double[][] maryLittleLamb = {
   {60, 1.0},
 };
 
-double[][] furElise = {
+furElise = {
    {76, 0.25},
    {75, 0.25},
    {76, 0.25},

@@ -3,6 +3,7 @@ int counter;
 int[] tilePositions;
 int tilePositionIndex; 
 int score;
+int piece; 
 
 
 SoundCipher sc = new SoundCipher(this);
@@ -20,6 +21,7 @@ void setup() {
   fillTilePositions();
   tilePositionIndex = 0;
   score = 0;
+  piece = 0;
 }
 
 
