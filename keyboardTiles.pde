@@ -1,6 +1,6 @@
 
 int counter; //Current index in music
-int piece; //Song being played
+int piece = 1; //Song being played
 int score;
 int screen; //Current screen
 int[] tilePositions; //Array of randomly generated tile positions
@@ -23,6 +23,7 @@ void setup() {
   fillTilePositions();
   tilePositionIndex = 0;
   score = 0;
+  counter = 0;
   screen = 2;
 }
 
@@ -45,8 +46,9 @@ void keyPressed() {
 
       advanceGame();
     } else if (tilePositions[tilePositionIndex] == 3 && Character.toLowerCase(key) == tileDKey) {
-
       advanceGame();
+    } else {
+     //setup(); 
     }
   }
 }
@@ -59,5 +61,6 @@ void advanceGame() {
   score++;
   if (counter == sheetMusic[piece].length) {
     counter = 0;
+    println("End of Song");
   }
 }
