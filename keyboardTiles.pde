@@ -1,12 +1,14 @@
 
-int counter;
-int[] tilePositions;
-int tilePositionIndex; 
+int counter; //Current index in music
+int piece; //Song being played
 int score;
-Music piece; 
+int screen; //Current screen
+int[] tilePositions; //Array of randomly generated tile positions
+int tilePositionIndex; //Current index in the tilePositions array
 
 
 SoundCipher sc = new SoundCipher(this);
+
 
 void fillTilePositions() {
   for (int i = 0; i < tilePositions.length; i ++) {
@@ -21,75 +23,41 @@ void setup() {
   fillTilePositions();
   tilePositionIndex = 0;
   score = 0;
+  screen = 2;
 }
 
 
 void draw() {
-  background(255, 255, 255, 360); 
-  // Vertical Grid Lines
-  line(120, 0, 120, 720);
-  line(240, 0, 240, 720);
-  line(360, 0, 360, 720);
-  // Horizontal Grid Lines
-  line(0, 180, 480, 180);
-  line(0, 360, 480, 360);
-  line(0, 540, 480, 540);
-  for (int tileNum = 0; tileNum < 4; tileNum++) {
-    fill(#000000);
-    int xCor = (tilePositions[tilePositionIndex + tileNum]) *120 - 1;
-    int yCor = (3 - tileNum) * 180;
-    rect(xCor, yCor, 120.75, 179);
-    // Score 
-    fill(235, 16, 16);
-    textSize(42);
-    text(Integer.toString(score), 215, 90);
+  if (screen == 2) {
+    arcadeScreen();
   }
 }
 
 
 void keyPressed() {
-  if (key == tileAKey || key == tileAKey - 32) {
-    if (tilePositions[tilePositionIndex] == 0) {
-      sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-      counter++;
-      tilePositionIndex++;
-      score++;
-    }
-    if (counter == maryLittleLamb.length) {
-      counter = 0;
-    }
-  }
-  if (key == tileBKey || key == tileBKey - 32) {
-    if (tilePositions[tilePositionIndex] == 1) {
-      sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-      counter++;
-      tilePositionIndex++;
-      score++;
-    }
-    if (counter == maryLittleLamb.length) {
-      counter = 0;
+  if (screen == 2) {
+    if (tilePositions[tilePositionIndex] == 0 && Character.toLowerCase(key) == tileAKey) {
+      advanceGame();
+    } else if (tilePositions[tilePositionIndex] == 1 && Character.toLowerCase(key) == tileBKey) {
+
+      advanceGame();
+    } else if (tilePositions[tilePositionIndex] == 2 && Character.toLowerCase(key) == tileCKey) {
+
+      advanceGame();
+    } else if (tilePositions[tilePositionIndex] == 3 && Character.toLowerCase(key) == tileDKey) {
+
+      advanceGame();
     }
   }
-  if (key == tileCKey || key == tileCKey - 32) {
-    if (tilePositions[tilePositionIndex] == 2) {
-      sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-      counter++;
-      tilePositionIndex++;
-      score++;
-    }
-    if (counter == maryLittleLamb.length) {
-      counter = 0;
-    }
-  }
-  if (key == tileDKey || key == tileDKey - 32) {
-    if (tilePositions[tilePositionIndex] == 3) {
-      sc.playNote(maryLittleLamb[counter][0], 100, maryLittleLamb[counter][1]);
-      counter++;
-      tilePositionIndex++;
-      score++;
-    }
-    if (counter == maryLittleLamb.length) {
-      counter = 0;
-    }
+}
+
+
+void advanceGame() {
+  sc.playNote(getMIDINum(sheetMusic[piece][counter]), 100, getNoteLength(sheetMusic[piece][counter]));
+  counter++;
+  tilePositionIndex++;
+  score++;
+  if (counter == sheetMusic[piece].length) {
+    counter = 0;
   }
 }
