@@ -16,7 +16,7 @@ boolean overArcadePlus = false;
 
 
 boolean overClassic() {
-  if (mousePressed == true && mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 180) {
+  if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 180) {
     println("Classic");
     return true;
   } else {
@@ -24,35 +24,42 @@ boolean overClassic() {
   }
 }
 boolean overArcade() {
-  if (mousePressed == true && mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 180) {
+  if (mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 180) {
     return true;
   } else {
     return false;
   }
 }
 boolean overZen() {
-  if (mousePressed == true && mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 360) {
+  if (mouseX >= 0 && mouseX <= 240 && mouseY >= 180 && mouseY <= 360) {
     return true;
   } else {
     return false;
   }
 }
 boolean overRush() {
-  if (mousePressed == true && mouseX >= 240 && mouseX <= 480 && mouseY >= 0 && mouseY <= 360) {
+  if (mouseX >= 240 && mouseX <= 480 && mouseY >= 180 && mouseY <= 360) {
     return true;
   } else {
     return false;
   }
 }
 boolean overRelay() {
-  if (mousePressed == true && mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 540) {
+  if (mouseX >= 0 && mouseX <= 240 && mouseY >= 360 && mouseY <= 540) {
     return true;
   } else {
     return false;
   }
 }
 boolean overArcadePlus() {
-  if (mousePressed == true && mouseX >= 240 && mouseX <= 480 && mouseY >= 0 && mouseY <= 540) {
+  if (mouseX >= 240 && mouseX <= 480 && mouseY >= 360 && mouseY <= 540) {
+    return true;
+  } else {
+    return false;
+  }
+}
+boolean overSettings() {
+  if (mouseX >= 0 && mouseX <= 240 && mouseY >= 540 && mouseY <= 720) {
     return true;
   } else {
     return false;
@@ -65,15 +72,21 @@ void update() {
 
 void mousePressed() {
   if (screen == 0) {
-    if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 180) {
+    if (overClassic()) {
       println("Classic Mode");
-    } else if (mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 180) {
+    } else if (overArcade()) {
       println("Arcade Mode");
       screen = 11;
-    } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 360) {
+    } else if (overZen()) {
       println ("Zen Mode");
-    } else if (mouseX >= 240 && mouseX <= 480 && mouseY >= 0 && mouseY <= 360) {
+    } else if (overRush()) {
       println ("Rush Mode"); 
+    } else if (overRelay()){
+      println ("Relay Mode");
+    } else if (overArcadePlus()){
+      println("ArcadePlus Mode");
+    } else if (overSettings()){
+      println("Settings Mode");
     }
   }
 }
