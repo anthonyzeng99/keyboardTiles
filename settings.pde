@@ -5,6 +5,7 @@ char tileCKey = 'd';
 char tileDKey = 'f';
 char tileEKey = 'j';
 char tileFKey = 'k';
+char continueKey = 'c';
 
 
 int instrument = 1;

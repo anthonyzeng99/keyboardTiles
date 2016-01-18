@@ -1,5 +1,5 @@
 int counter; //Current position in music 
-int piece = 1; //Song being played
+int piece = 2; //Song being played
 int tilesTapped; 
 int screen; //Current screen
 int gameMode; // Mode being played
@@ -8,10 +8,9 @@ int[] tilePositions; //Array of randomly generated tile positions
 int tilePositionIndex; //Current index in the tilePositions array
 int startTime; // Time at which game started
 int elapsedTime; // Difference between startTime and millis();
-int endTime;
-boolean timeCalculated; //Whether the end time for the game has been calculated yet
-float progressBarRedValue;
-float progressBarGreenValue;
+int endTime; // Time elapsed at the point where the game ended;
+float progressBarRedValue; // Red color value of progress bar
+float progressBarGreenValue; // Green color value of progress bar
 
 
 SoundCipher sc = new SoundCipher(this);
@@ -25,15 +24,7 @@ void setup() {
 
 
 void draw() {
-  if (screen == 0) {
-    menuScreen();
-  } else if (screen == 10) {
-    classicScreen();
-  } else if (screen == 11) {
-    arcadeScreen();
-  } else if (screen == 20) {
-    endScreen(gameMode);
-  }
+  screenTracker();
   timeKeeper();
   winLossTracker();
 }
@@ -70,6 +61,18 @@ void newGame() {
   startTime = 0;
   elapsedTime = 0;
   endTime = 0;
+}
+
+void screenTracker() {
+    if (screen == 0) {
+    menuScreen();
+  } else if (screen == 10) {
+    classicScreen();
+  } else if (screen == 11) {
+    arcadeScreen();
+  } else if (screen == 20) {
+    endScreen(gameMode);
+  }
 }
 
 void timeKeeper() {

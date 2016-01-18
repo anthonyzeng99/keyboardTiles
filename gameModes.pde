@@ -38,6 +38,7 @@ void classicScreen() {
   // End Game when 50 Tiles Tapped;
   if (tilesTapped == 50) {
     gameWL = 1;
+    endTime = millis() - startTime;
   }
 }
 
@@ -89,12 +90,18 @@ void endScreen(int gameNum) {
   text(games[gameNum], 240, 180);
   //Score
   if (gameWL == -1) {
-    fill(0, 0, 0);
+    fill(black);
   }
   generateScore();
   //Best Score
   //textSize(36);
   //text("BEST " + tilesTapped, 240, 410);
+  textSize(24);
+  textAlign(CENTER);
+  if (gameWL == 1) {
+    fill(white);
+  }
+  text("Press 'ENTER' to continue", 240, 520);
 }
 
 
@@ -103,7 +110,7 @@ void generateScore() {
     textSize(72);
     textAlign(CENTER);
     if (gameWL == 1) {
-      text(formatTime(elapsedTime), 240, 360);
+      text(formatTime(endTime), 240, 360);
     } else if (gameWL == -1) {
       text("Failed !", 240, 360);
     }

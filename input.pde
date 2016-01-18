@@ -1,6 +1,6 @@
 void keyPressed() {
   if (tilesTapped == 0) {
-   startTime = millis(); 
+    startTime = millis();
   }
   if (screen >= 10 && screen < 20) {
     if (tilePositions[tilePositionIndex] == 0 && Character.toLowerCase(key) == tileAKey) {
@@ -14,29 +14,30 @@ void keyPressed() {
     } else if (tilePositions[tilePositionIndex] == 3 && Character.toLowerCase(key) == tileDKey) {
       advanceGame();
     } else {
-      gameWL = -1;
-      endTime = millis() - startTime;
+      //gameWL = -1;
     }
   } else if (screen == 20 || screen == 21) {
-    gameWL = 0;
-    setup();
+    if (key == ENTER) {
+      gameWL = 0;
+      setup();
+    }
   }
 }
 
 void mousePressed() {
   if (screen == 0) {
     if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 180) {
-      println("Classic Mode");
+      // Classic Mode
       gameMode = 0;
       screen = 10;
     } else if (mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 180) {
-      println("Arcade Mode");
+      // Arcade Mode
       gameMode = 1;
       screen = 11;
     } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 360) {
       println ("Zen Mode");
     } else if (mouseX >= 240 && mouseX <= 480 && mouseY >= 0 && mouseY <= 360) {
-      println ("Rush Mode"); 
+      println ("Rush Mode");
     }
   }
 }
