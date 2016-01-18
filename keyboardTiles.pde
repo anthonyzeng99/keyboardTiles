@@ -1,8 +1,10 @@
 
+
 int counter; //Current index in music
 int piece = 0; //Song being played
 int score;
 int screen; //Current screen
+int gameMode; // Mode being played
 int[] tilePositions; //Array of randomly generated tile positions
 int tilePositionIndex; //Current index in the tilePositions array
 
@@ -24,20 +26,26 @@ void setup() {
   tilePositionIndex = 0;
   score = 0;
   counter = 0;
-  screen = 2;
+  screen = 0;
   sc.instrument(instrument - 1);
 }
 
 
 void draw() {
-  if (screen == 2) {
+  if (screen == 0) {
+    menuScreen(); 
+  }
+  if (screen == 11) {
+    gameMode = 2;
     arcadeScreen();
+  } else if (screen == 20) {
+    endScreen(gameMode); 
   }
 }
 
 
 void keyPressed() {
-  if (screen == 2) {
+  if (screen == 11) {
     if (tilePositions[tilePositionIndex] == 0 && Character.toLowerCase(key) == tileAKey) {
       advanceGame();
     } else if (tilePositions[tilePositionIndex] == 1 && Character.toLowerCase(key) == tileBKey) {
@@ -49,9 +57,12 @@ void keyPressed() {
     } else if (tilePositions[tilePositionIndex] == 3 && Character.toLowerCase(key) == tileDKey) {
       advanceGame();
     } else {
-     //setup(); 
+     screen = 20;
     }
+  } else if (screen == 20) {
+    setup(); 
   }
+  
 }
 
 
