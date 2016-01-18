@@ -24,9 +24,9 @@ int getMIDINum(String note) {
   int octave = (Integer.parseInt(note.substring(1, 2)) - 1) * 12;
   int modifier = 0;
   try {
-    if (note.substring(2, 3) == "f") {
+    if (note.substring(2, 3).equals("f")) {
       modifier = -1;
-    } else if (note.substring(2, 3) == "s") {
+    } else if (note.substring(2, 3).equals("s")) {
       modifier = 1;
     }
   } 
@@ -97,5 +97,28 @@ String[][] sheetMusic = {
   {
     "c4", "c4", "g4", "g4", "a4", "a4", "g4nh", "f4", "f4", "e4", "e4", "d4", "d4", "c4nh", "g4", "g4", "f4", "f4", "e4", "e4", "d4nh", "g4", "g4", "f4", "f4", "e4", "e4", "d4",
     "c4", "c4", "g4", "g4", "a4", "a4", "g4", "f4", "f4", "e4", "e4", "d4", "d4", "c4nh"
+  },
+  
+  // Ode to Joy
+  {
+   "e4", "e4", "f4", "g4", "g4", "f4", "e4", "d4", "c4", "c4", "d4", "e4", "e4", "d4", "d4nh", // 1st Stanza
+   "e4", "e4", "f4", "g4", "g4", "f4", "e4", "d4", "c4", "c4", "d4", "e4", "d4", "c4", "c4ng", // 2nd Stanza
+   "d4nh", "e4", "c4", "d4", "e4", "f4", "e4", "c4", "d4", "e4", "f4", "e4", "d4", "c4", "d4", "g4nh", // 3rd Stanza
+   "e4", "e4", "f4", "g4", "g4", "f4", "e4", "d4", "c4", "c4", "d4", "e4", "d4", "c4", "c4ng" // 4th Stanza
+  },
+  
+  // Good King Wenceslas
+  {
+   "g4", "g4", "g4", "a4", "g4", "g4", "d4nh", "e4", "d4", "e4", "f4sq", "g4nh", "g4nh", "g4", "g4", "g4", "a4", "g4", "g4", "d4ng", // 1st Stanza
+   "e4", "d4", "e4", "f4sq", "g4ng", "g4nh", "d5", "c5", "b4", "a4", "b4", "a4", "g4nh", "e4", "d4", "e4", "f4sq", // 2nd Stanza
+   "g4nh", "g4nh", "d4", "d4", "e4", "f4sq", "g4", "g4", "a4nh", "d5", "c5", "b4", "a4", "g4nh", "c5nh", "g4nw"
+  }, 
+  
+  // We Wish You a Merry Christmas
+  {
+   "d4", "g4", "g4", "a4", "g4", "f4s", "e4", "e4", "e4", "a4", "a4", "b4", "a4", "g4", "f4s", "d4", "d4", //1st Stanza
+   "b4", "b4", "c5", "b4", "a4", "g4", "e4", "d4", "d4", "e4", "a4", "f4s", "g4nh", "d4", //2nd Stanza
+   "g4", "g4", "g4", "f4sh", "f4s", "g4", "f4s", "e4", "d4nh", "a4", // 3rd Stanza
+   "b4", "a4", "g4", "d5", "d4", "d4", "d4", "e4", "a4", "f4s", "g4nh"
   }
 };

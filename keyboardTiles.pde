@@ -1,5 +1,5 @@
 int counter; //Current position in music 
-int piece = 2; //Song being played
+int piece; //Song being played
 int tilesTapped; 
 int screen; //Current screen
 int gameMode; // Mode being played
@@ -44,12 +44,12 @@ void advanceGame() {
   tilesTapped++;
   if (counter == sheetMusic[piece].length) {
     counter = 0;
-    println("End of Song");
   }
 }
 
 
 void newGame() {
+  piece = (int)(random(0,sheetMusic.length));
   tilePositions = new int[10000];
   fillTilePositions();
   tilePositionIndex = 0;

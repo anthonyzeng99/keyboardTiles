@@ -14,7 +14,7 @@ void keyPressed() {
     } else if (tilePositions[tilePositionIndex] == 3 && Character.toLowerCase(key) == tileDKey) {
       advanceGame();
     } else {
-      //gameWL = -1;
+      gameWL = -1;
     }
   } else if (screen == 20 || screen == 21) {
     if (key == ENTER) {
