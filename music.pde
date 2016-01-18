@@ -76,8 +76,8 @@ double getNoteLength(String note) {
 
 String[][] sheetMusic = {
   //Mary Had a Little Lamb
-  {"e4nq", "d4nq", "c4nq", "d4nq", "e4nq", "e4nq", "e4nq", "d4nq", "d4nq", "d4nq", "e4nq", "g4nq", "g4nq", "e4nq", "d4nq", "c4nq", "d4nq", "e4nq", "e4nq", "e4nq", "d4nq", 
-    "d4nq", "e4nq", "d4nq", "c4nw"
+  {"e4", "d4", "c4", "d4", "e4", "e4", "e4", "d4", "d4", "d4", "e4", "g4", "g4", "e4", "d4", "c4", "d4", "e4", "e4", "e4", "d4", 
+    "d4", "e4", "d4", "c4nw"
   }, 
 
   //Fur Elise

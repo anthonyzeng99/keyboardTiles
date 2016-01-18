@@ -1,6 +1,6 @@
 
 int counter; //Current index in music
-int piece = 1; //Song being played
+int piece = 0; //Song being played
 int score;
 int screen; //Current screen
 int[] tilePositions; //Array of randomly generated tile positions
@@ -25,6 +25,7 @@ void setup() {
   score = 0;
   counter = 0;
   screen = 2;
+  sc.instrument(instrument - 1);
 }
 
 
