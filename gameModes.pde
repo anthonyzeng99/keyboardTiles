@@ -55,6 +55,16 @@ void arcadeScreen() {
   textAlign(0);
 }
 
+void zenScreen(){
+  standardGameLayout();
+  
+}
+
+void rushScreen(){
+  standardGameLayout();
+  
+}
+
 void progressBar() {
   float barProgress;
   
