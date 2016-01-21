@@ -27,7 +27,7 @@ void standardGameLayout() {
 void classicScreen() {
   standardGameLayout();
   progressBar();
-  
+
   // Score - Based on time
   fill(235, 16, 16);
   textSize(42);
@@ -55,26 +55,24 @@ void arcadeScreen() {
   textAlign(0);
 }
 
-void zenScreen(){
+void zenScreen() {
   standardGameLayout();
-  
 }
 
-void rushScreen(){
+void rushScreen() {
   standardGameLayout();
-  
 }
 
 void progressBar() {
   float barProgress;
-  
+
   // Draws the progress bar
   barProgress = tilesTapped * 9.6;
   fill(progressBarRedValue, progressBarGreenValue, 0.0);
   noStroke();
   rect(0, 0, barProgress, 5); 
   stroke(0);
-  
+
   // Updates progress bar
   if (tilesTapped <= 25) {
     progressBarGreenValue = 0.0 + (tilesTapped * 10.2);
@@ -83,7 +81,6 @@ void progressBar() {
     progressBarRedValue = 255.0 - ( (tilesTapped - 25) * 10.2);
     progressBarGreenValue = 255.0;
   }
-  
 }
 
 void endScreen(int gameNum) {
@@ -103,6 +100,7 @@ void endScreen(int gameNum) {
     fill(black);
   }
   generateScore();
+  setHighScore();
   //Best Score
   //textSize(36);
   //text("BEST " + tilesTapped, 240, 410);
@@ -121,6 +119,7 @@ void generateScore() {
     textAlign(CENTER);
     if (gameWL == 1) {
       text(formatTime(endTime), 240, 360);
+      score = endTime;
     } else if (gameWL == -1) {
       text("Failed !", 240, 360);
     }
@@ -128,6 +127,17 @@ void generateScore() {
     textSize(72);
     textAlign(CENTER);
     text(Integer.toString(tilesTapped), 240, 360);
-  } 
-  
+    score = tilesTapped;
+  }
+}
+
+void setHighScore() {
+  if (gameMode == 0 && score < Integer.parseInt(highScores[gameMode])) {
+    highScores[gameMode] = Integer.toString(score);
+    saveStrings("highScores.txt", highScores);
+  }
+  if (gameMode == 1 && score > Integer.parseInt(highScores[gameMode])) {
+    highScores[gameMode] = Integer.toString(score);
+    saveStrings("highScores.txt", highScores);
+  }
 }

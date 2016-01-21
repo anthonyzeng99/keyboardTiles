@@ -9,6 +9,9 @@ int tilePositionIndex; //Current index in the tilePositions array
 int startTime; // Time at which game started
 int elapsedTime; // Difference between startTime and millis();
 int endTime; // Time elapsed at the point where the game ended;
+int score;
+String[] highScores;
+String[] settings ;
 float progressBarRedValue; // Red color value of progress bar
 float progressBarGreenValue; // Green color value of progress bar
 
@@ -16,7 +19,9 @@ float progressBarGreenValue; // Green color value of progress bar
 SoundCipher sc = new SoundCipher(this);
 
 
+
 void setup() {
+  highScores = loadStrings("highScores.txt");
   size(480, 720);
   screen = 0;
   newGame();
