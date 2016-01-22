@@ -57,6 +57,17 @@ void arcadeScreen() {
 
 void zenScreen() {
   standardGameLayout();
+    // Score - Based on tiles tapped
+  fill(235, 16, 16);
+  textSize(42);
+  textAlign(CENTER);
+  text(Integer.toString(tilesTapped), 240, 90);
+  textAlign(0);
+  // End Game when Time runs out;
+  //**********************************************************
+  if(millis() == 3000){
+    gameWL = 1;
+    endTime = millis() - startTime;}
 }
 
 void rushScreen() {
