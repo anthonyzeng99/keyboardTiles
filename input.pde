@@ -15,8 +15,9 @@ void keyPressed() {
       advanceGame();
     } else {
       gameWL = -1;
+      endTime = millis() - startTime;
     }
-  } else if (screen == 20 || screen == 21) {
+  } else if (screen == 20 || screen == 1) {
     if (key == ENTER) {
       gameWL = 0;
       setup();
@@ -38,6 +39,16 @@ void mousePressed() {
       println ("Zen Mode");
     } else if (mouseX >= 240 && mouseX <= 480 && mouseY >= 0 && mouseY <= 360) {
       println ("Rush Mode");
-    }
+    } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 540) {
+      println ("Stats");
+      screen = 1;
+    } 
+  } 
+  
+  if (screen == 1) {
+   if (mouseX >= 180 && mouseX <= 300 & mouseY >= 550 && mouseY <= 610) {
+    println("reset"); 
+    resetStats();
+   }
   }
 }

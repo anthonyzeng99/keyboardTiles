@@ -21,10 +21,12 @@ void standardGameLayout() {
     int yCor = (3 - tileNum) * 180;
     rect(xCor, yCor, 120.75, 179);
   }
+  
 }
 
 
 void classicScreen() {
+  
   standardGameLayout();
   progressBar();
 
@@ -40,6 +42,7 @@ void classicScreen() {
     gameWL = 1;
     endTime = millis() - startTime;
   }
+  
 }
 
 
@@ -95,7 +98,7 @@ void progressBar() {
 }
 
 void endScreen(int gameNum) {
-  String[] games = {"Classic Mode", "Arcade Mode", "Zen Mode", "Rush Mode"};
+   String[] games = {"Classic Mode", "Arcade Mode", "Zen Mode", "Rush Mode"};
   //Title
   if (gameWL == -1) {
     background(250, 91, 67);
@@ -112,6 +115,10 @@ void endScreen(int gameNum) {
   }
   generateScore();
   setHighScore();
+  while (!statsUpdated) {
+    updateStats();
+    statsUpdated = true;
+  }
   //Best Score
   //textSize(36);
   //text("BEST " + tilesTapped, 240, 410);
@@ -125,6 +132,7 @@ void endScreen(int gameNum) {
 
 
 void generateScore() {
+  
   if (gameMode == 0) {
     textSize(72);
     textAlign(CENTER);
@@ -140,15 +148,33 @@ void generateScore() {
     text(Integer.toString(tilesTapped), 240, 360);
     score = tilesTapped;
   }
+  
 }
 
 void setHighScore() {
+  
   if (gameMode == 0 && score < Integer.parseInt(highScores[gameMode])) {
     highScores[gameMode] = Integer.toString(score);
     saveStrings("highScores.txt", highScores);
   }
+  
   if (gameMode == 1 && score > Integer.parseInt(highScores[gameMode])) {
     highScores[gameMode] = Integer.toString(score);
     saveStrings("highScores.txt", highScores);
   }
+  
+}
+
+void updateStats() {
+  
+  int newGamesPlayed = Integer.parseInt(stats[0]) + 1;
+  int newTilesTapped = Integer.parseInt(stats[1]) + tilesTapped;
+  int newTimePlayed = Integer.parseInt(stats[2]) + endTime;
+  
+  stats[0] = Integer.toString(newGamesPlayed);
+  stats[1] = Integer.toString(newTilesTapped);
+  stats[2] = Integer.toString(newTimePlayed);
+  
+  saveStrings("stats.txt", stats);
+  
 }

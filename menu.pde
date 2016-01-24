@@ -28,6 +28,10 @@ void menuScreen() {
   fill(black);
   text("Rush", 310, 285);
   
+  //Stats 
+  fill(black);
+  text("Stats", 70, 465);
+  
   fill(black);
   rect(240, 360, 240, 180);
   rect(0, 540, 240, 180);
