@@ -36,7 +36,8 @@ void mousePressed() {
       gameMode = 1;
       screen = 11;
     } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 360) {
-      println ("Zen Mode");
+      gameMode = 2;
+      screen = 12;
     } else if (mouseX >= 240 && mouseX <= 480 && mouseY >= 0 && mouseY <= 360) {
       println ("Rush Mode");
     } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 540) {
@@ -44,11 +45,11 @@ void mousePressed() {
       screen = 1;
     } 
   } 
-  
+  /*
   if (screen == 1) {
    if (mouseX >= 180 && mouseX <= 300 & mouseY >= 550 && mouseY <= 610) {
     println("reset"); 
     resetStats();
    }
-  }
+  } */
 }

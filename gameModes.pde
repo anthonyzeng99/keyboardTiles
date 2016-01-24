@@ -60,6 +60,7 @@ void arcadeScreen() {
 
 void zenScreen() {
   standardGameLayout();
+  timeBar();
     // Score - Based on tiles tapped
   fill(235, 16, 16);
   textSize(42);
@@ -68,9 +69,9 @@ void zenScreen() {
   textAlign(0);
   // End Game when Time runs out;
   //**********************************************************
-  if(millis() == 3000){
+  if(elapsedTime > 15000){
     gameWL = 1;
-    endTime = millis() - startTime;}
+    }
 }
 
 void rushScreen() {
@@ -95,6 +96,13 @@ void progressBar() {
     progressBarRedValue = 255.0 - ( (tilesTapped - 25) * 10.2);
     progressBarGreenValue = 255.0;
   }
+}
+void timeBar() {
+    fill(#00FF00);
+    rect(0, 0, 480, 5);
+    fill(white);
+    rect(480, 0, -.032 * elapsedTime, 5);
+    
 }
 
 void endScreen(int gameNum) {
@@ -143,6 +151,11 @@ void generateScore() {
       text("Failed !", 240, 360);
     }
   } else if (gameMode == 1) {
+    textSize(72);
+    textAlign(CENTER);
+    text(Integer.toString(tilesTapped), 240, 360);
+    score = tilesTapped;
+  } else if (gameMode == 2) {
     textSize(72);
     textAlign(CENTER);
     text(Integer.toString(tilesTapped), 240, 360);
