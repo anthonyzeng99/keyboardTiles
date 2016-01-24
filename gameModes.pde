@@ -16,10 +16,10 @@ void standardGameLayout() {
 
   // Black Tiles
   for (int tileNum = 0; tileNum < 4; tileNum++) {
-    fill(#000000);
-    int xCor = (tilePositions[tilePositionIndex + tileNum]) *120 - 1;
-    int yCor = (3 - tileNum) * 180;
-    rect(xCor, yCor, 120.75, 179);
+    fill(#00bfff);
+    int xCor = (tilePositions[tilePositionIndex + tileNum]) *120;
+    int yCor = (3 - tileNum) * 180 + 1;
+    rect(xCor, yCor, 120, 179);
   }
   
 }
@@ -97,6 +97,8 @@ void progressBar() {
     progressBarGreenValue = 255.0;
   }
 }
+
+
 void timeBar() {
     fill(#00FF00);
     rect(0, 0, 480, 5);
@@ -104,6 +106,7 @@ void timeBar() {
     rect(480, 0, -.032 * elapsedTime, 5);
     
 }
+
 
 void endScreen(int gameNum) {
    String[] games = {"Classic Mode", "Arcade Mode", "Zen Mode", "Rush Mode"};
@@ -150,44 +153,9 @@ void generateScore() {
     } else if (gameWL == -1) {
       text("Failed !", 240, 360);
     }
-  } else if (gameMode == 1) {
+  } else if (gameMode == 1 || gameMode == 2) {
     textSize(72);
     textAlign(CENTER);
     text(Integer.toString(tilesTapped), 240, 360);
     score = tilesTapped;
-  } else if (gameMode == 2) {
-    textSize(72);
-    textAlign(CENTER);
-    text(Integer.toString(tilesTapped), 240, 360);
-    score = tilesTapped;
-  }
-  
-}
-
-void setHighScore() {
-  
-  if (gameMode == 0 && score < Integer.parseInt(highScores[gameMode])) {
-    highScores[gameMode] = Integer.toString(score);
-    saveStrings("highScores.txt", highScores);
-  }
-  
-  if (gameMode == 1 && score > Integer.parseInt(highScores[gameMode])) {
-    highScores[gameMode] = Integer.toString(score);
-    saveStrings("highScores.txt", highScores);
-  }
-  
-}
-
-void updateStats() {
-  
-  int newGamesPlayed = Integer.parseInt(stats[0]) + 1;
-  int newTilesTapped = Integer.parseInt(stats[1]) + tilesTapped;
-  int newTimePlayed = Integer.parseInt(stats[2]) + endTime;
-  
-  stats[0] = Integer.toString(newGamesPlayed);
-  stats[1] = Integer.toString(newTilesTapped);
-  stats[2] = Integer.toString(newTimePlayed);
-  
-  saveStrings("stats.txt", stats);
-  
 }

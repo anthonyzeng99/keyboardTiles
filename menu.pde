@@ -6,19 +6,19 @@ void menuScreen() {
   background(255, 255, 255, 360); 
   textAlign(0);
 
-  //Classic
+  // Classic
   fill(black);
   textSize(42);
   text("Classic", 50, 105);  
 
-  //Arcade Mode
+  // Arcade Mode
   fill(black);
   rect(240, 0, 240, 180); 
   fill(white);
   textSize(42);
   text("Arcade", 290, 105);
   
-  //Zen Mode
+  // Zen Mode
   fill(black);
   rect(0, 180, 240, 180);
   fill(white);
@@ -28,11 +28,25 @@ void menuScreen() {
   fill(black);
   text("Rush", 310, 285);
   
-  //Stats 
+  // Stats 
   fill(black);
   text("Stats", 70, 465);
   
+  // Tile Color
   fill(black);
   rect(240, 360, 240, 180);
+  fill(white);
+  text("Tile", 320, 440);
+  text("Color", 305, 490);
+  
+  // Instrument
+  fill(black);
   rect(0, 540, 240, 180);
+  fill(white);
+  text("Instrument", 10, 645);
+  
+  // Info Screen
+  fill(black);
+  text("Info", 320, 645);
+  
 }

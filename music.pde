@@ -19,19 +19,22 @@ final int baseB = 35;
  Note length defaults to quarter
  Note accidental required if specifying note length
  */
-int getMIDINum(String note) {
+int getMIDINum(String note) { 
+  
   String baseNote = note.substring(0, 1);
   int octave = (Integer.parseInt(note.substring(1, 2)) - 1) * 12;
   int modifier = 0;
+  
   try {
+    
     if (note.substring(2, 3).equals("f")) {
       modifier = -1;
     } else if (note.substring(2, 3).equals("s")) {
       modifier = 1;
     }
-  } 
-  catch(Exception e) {
-  }
+    
+  } catch(Exception e) { }
+  
   if (baseNote.equals("c")) {
     return (baseC + octave) + modifier;
   } else if (baseNote.equals("d")) {
@@ -47,17 +50,22 @@ int getMIDINum(String note) {
   } else if (baseNote.equals("b")) {
     return (baseB + octave) + modifier;
   }
+  
   return 0;
+  
 }
 
+
 double getNoteLength(String note) {
+  
   String noteLength;
+  
   try {
     noteLength = note.substring(3, 4);
-  } 
-  catch (Exception e) {
+  } catch (Exception e) {
     return 0.25;
   }
+  
   if (noteLength == "t") {
     return 0.03125; // thirty-second note
   } else if (noteLength.equals("s")) {
@@ -71,10 +79,13 @@ double getNoteLength(String note) {
   } else if (noteLength.equals("w")) {
     return 1; // whole note
   }
+  
   return 0.25;
+  
 }
 
 String[][] sheetMusic = {
+  
   //Mary Had a Little Lamb
   {"e4", "d4", "c4", "d4", "e4", "e4", "e4", "d4", "d4", "d4", "e4", "g4", "g4", "e4", "d4", "c4", "d4", "e4", "e4", "e4", "d4", 
     "d4", "e4", "d4", "c4nw"
@@ -121,4 +132,5 @@ String[][] sheetMusic = {
    "g4", "g4", "g4", "f4sh", "f4s", "g4", "f4s", "e4", "d4nh", "a4", // 3rd Stanza
    "b4", "a4", "g4", "d5", "d4", "d4", "d4", "e4", "a4", "f4s", "g4nh"
   }
+  
 };

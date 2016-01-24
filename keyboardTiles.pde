@@ -21,11 +21,9 @@ String totalTilesTapped;
 String totalTimePlayed;
 
 
-SoundCipher sc = new SoundCipher(this);
-
-
-
 void setup() {
+  
+  SoundCipher sc = new SoundCipher(this);
   highScores = loadStrings("highScores.txt");
   stats = loadStrings("stats.txt");
   size(480, 720);
@@ -34,24 +32,30 @@ void setup() {
   totalGamesPlayed = stats[0];
   totalTilesTapped = stats[1];
   totalTimePlayed = formatTime(Integer.parseInt(stats[2]));
+  
 }
 
 
 void draw() {
+  
   screenTracker();
   timeKeeper();
   winLossTracker();
+  
 }
 
 
 void fillTilePositions() {
+  
   for (int i = 0; i < tilePositions.length; i ++) {
     tilePositions[i] = (int)(random(0, 4));
   }
+  
 }
 
 
 void advanceGame() {
+  
   sc.playNote(getMIDINum(sheetMusic[piece][counter]), 100, getNoteLength(sheetMusic[piece][counter]));
   counter++;
   tilePositionIndex++;
@@ -59,10 +63,12 @@ void advanceGame() {
   if (counter == sheetMusic[piece].length) {
     counter = 0;
   }
+  
 }
 
 
 void newGame() {
+  
   piece = (int)(random(0, sheetMusic.length));
   tilePositions = new int[10000];
   fillTilePositions();
@@ -78,9 +84,12 @@ void newGame() {
   statsUpdated = false;
   highScores = loadStrings("highScores.txt");
   stats = loadStrings("stats.txt");
+  
 }
 
+
 void screenTracker() {
+  
   if (screen == 0) {
     menuScreen();
   } else if (screen == 1) {
@@ -94,23 +103,63 @@ void screenTracker() {
   } else if (screen == 20) {
     endScreen(gameMode);
   }
+  
 }
 
+
 void timeKeeper() {
+  
   if (tilesTapped == 0) {
     elapsedTime = 0;
   } else {
     elapsedTime = millis() - startTime;
   }
+  
 }
 
+
 void winLossTracker() {
+  
   if (gameWL != 0) {
     screen = 20;
   }
+  
 }
 
 
 String formatTime(int time) {
+  
   return "" + (time / 1000.0) + '"';
+  
+}
+
+
+
+
+
+void setHighScore() {
+  
+  if (gameMode == 0 && score < Integer.parseInt(highScores[gameMode])) {
+    highScores[gameMode] = Integer.toString(score);
+    saveStrings("highScores.txt", highScores);
+  } else if (score > Integer.parseInt(highScores[gameMode])) {
+    highScores[gameMode] = Integer.toString(score);
+    saveStrings("highScores.txt", highScores);
+  }
+  
+}
+
+
+void updateStats() {
+  
+  int newGamesPlayed = Integer.parseInt(stats[0]) + 1;
+  int newTilesTapped = Integer.parseInt(stats[1]) + tilesTapped;
+  int newTimePlayed = Integer.parseInt(stats[2]) + endTime;
+  
+  stats[0] = Integer.toString(newGamesPlayed);
+  stats[1] = Integer.toString(newTilesTapped);
+  stats[2] = Integer.toString(newTimePlayed);
+  
+  saveStrings("stats.txt", stats);
+  
 }
