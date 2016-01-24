@@ -83,8 +83,8 @@ void newGame() {
 void screenTracker() {
   if (screen == 0) {
     menuScreen();
-  //} else if (screen == 1) {
-  //  statsScreen();
+  } else if (screen == 1) {
+    statsScreen();
   } else if (screen == 10) {
     classicScreen();
   } else if (screen == 11) {

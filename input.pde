@@ -45,11 +45,10 @@ void mousePressed() {
       screen = 1;
     } 
   } 
-  /*
   if (screen == 1) {
    if (mouseX >= 180 && mouseX <= 300 & mouseY >= 550 && mouseY <= 610) {
     println("reset"); 
     resetStats();
    }
-  } */
+  } 
 }
