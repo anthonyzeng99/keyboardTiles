@@ -104,6 +104,8 @@ void screenTracker() {
     colorScreen();
   } else if (screen == 3) {
     instrumentsScreen();
+  } else if (screen == 4) {
+    infoScreen();
   } else if (screen == 10) {
     classicScreen();
   } else if (screen == 11) {
@@ -188,5 +190,6 @@ void loadFiles() {
   colorSelectorXCor = Integer.parseInt(settings[4]);
   colorSelectorYCor = Integer.parseInt(settings[5]);
   instrumentIndex = Integer.parseInt(settings[0]);
-  
+  instrumentSelectorXCor = Integer.parseInt(settings[1]);
+  instrumentSelectorYCor = Integer.parseInt(settings[2]);
 }

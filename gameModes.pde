@@ -109,10 +109,12 @@ void progressBar() {
 
 
 void timeBar() {
+  noStroke();
   fill(#00FF00);
   rect(0, 0, 480, 5);
   fill(white);
   rect(480, 0, -.032 * elapsedTime, 5);
+  stroke(0);
 }
 
 
