@@ -16,17 +16,16 @@ void standardGameLayout() {
 
   // Black Tiles
   for (int tileNum = 0; tileNum < 4; tileNum++) {
-    fill(#00bfff);
+    fill(tileColors[tileColorIndex]);
     int xCor = (tilePositions[tilePositionIndex + tileNum]) *120;
     int yCor = (3 - tileNum) * 180 + 1;
     rect(xCor, yCor, 120, 179);
   }
-  
 }
 
 
 void classicScreen() {
-  
+
   standardGameLayout();
   progressBar();
 
@@ -42,7 +41,6 @@ void classicScreen() {
     gameWL = 1;
     endTime = millis() - startTime;
   }
-  
 }
 
 
@@ -61,7 +59,7 @@ void arcadeScreen() {
 void zenScreen() {
   standardGameLayout();
   timeBar();
-    // Score - Based on tiles tapped
+  // Score - Based on tiles tapped
   fill(235, 16, 16);
   textSize(42);
   textAlign(CENTER);
@@ -69,9 +67,9 @@ void zenScreen() {
   textAlign(0);
   // End Game when Time runs out;
   //**********************************************************
-  if(elapsedTime > 15000){
+  if (elapsedTime > 15000) {
     gameWL = 1;
-    }
+  }
 }
 
 void rushScreen() {
@@ -100,16 +98,15 @@ void progressBar() {
 
 
 void timeBar() {
-    fill(#00FF00);
-    rect(0, 0, 480, 5);
-    fill(white);
-    rect(480, 0, -.032 * elapsedTime, 5);
-    
+  fill(#00FF00);
+  rect(0, 0, 480, 5);
+  fill(white);
+  rect(480, 0, -.032 * elapsedTime, 5);
 }
 
 
 void endScreen(int gameNum) {
-   String[] games = {"Classic Mode", "Arcade Mode", "Zen Mode", "Rush Mode"};
+  String[] games = {"Classic Mode", "Arcade Mode", "Zen Mode", "Rush Mode"};
   //Title
   if (gameWL == -1) {
     background(250, 91, 67);
@@ -143,7 +140,7 @@ void endScreen(int gameNum) {
 
 
 void generateScore() {
-  
+
   if (gameMode == 0) {
     textSize(72);
     textAlign(CENTER);
@@ -158,4 +155,5 @@ void generateScore() {
     textAlign(CENTER);
     text(Integer.toString(tilesTapped), 240, 360);
     score = tilesTapped;
+  }
 }

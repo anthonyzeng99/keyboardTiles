@@ -1,6 +1,6 @@
 int counter; //Current position in music 
 int piece; //Song being played
-int tilesTapped; 
+int tilesTapped; // Number of tiles tapped
 int screen; //Current screen
 int gameMode; // Mode being played
 int gameWL; // Whether game was won or loss
@@ -9,23 +9,31 @@ int tilePositionIndex; //Current index in the tilePositions array
 int startTime; // Time at which game started
 int elapsedTime; // Difference between startTime and millis();
 int endTime; // Time elapsed at the point where the game ended;
-int score;
-String[] highScores;
-String[] settings ;
-String[] stats;
+int score; // Score for game
+String[] highScores; // Array containing high score data
+String[] settings ; // Array containing settings data
+String[] stats; // Array containing stats data
 float progressBarRedValue; // Red color value of progress bar
 float progressBarGreenValue; // Green color value of progress bar
-boolean statsUpdated;
-String totalGamesPlayed;
-String totalTilesTapped;
-String totalTimePlayed;
+boolean statsUpdated; // Whether the stats for that game has been added to the total stats
+String totalGamesPlayed; // The total number of games that has been played
+String totalTilesTapped; // The total number of tiles that has been tapped 
+String totalTimePlayed; // The total time that the game has been played
+String highScoreFile = "data/highScores.txt"; // File where high scores are stored;
+String statsFile = "data/stats.txt"; // File where game stats are stored
+String settingsFile = "data/settings.txt"; // File where game settings are stored/
+int colorSelectorXCor;
+int colorSelectorYCor;
+int tileColorIndex; // Index of tile color selected from tileColors array
+
+
+SoundCipher sc = new SoundCipher(this);
 
 
 void setup() {
   
-  SoundCipher sc = new SoundCipher(this);
-  highScores = loadStrings("highScores.txt");
-  stats = loadStrings("stats.txt");
+  highScores = loadStrings(highScoreFile);
+  stats = loadStrings(statsFile);
   size(480, 720);
   screen = 0;
   newGame();
@@ -82,8 +90,9 @@ void newGame() {
   elapsedTime = 0;
   endTime = 0;
   statsUpdated = false;
-  highScores = loadStrings("highScores.txt");
-  stats = loadStrings("stats.txt");
+  highScores = loadStrings(highScoreFile);
+  stats = loadStrings(statsFile);
+  settings = loadStrings(settingsFile);
   
 }
 
@@ -94,6 +103,8 @@ void screenTracker() {
     menuScreen();
   } else if (screen == 1) {
     statsScreen();
+  } else if (screen == 2) {
+    colorScreen();   
   } else if (screen == 10) {
     classicScreen();
   } else if (screen == 11) {
@@ -134,17 +145,14 @@ String formatTime(int time) {
 }
 
 
-
-
-
 void setHighScore() {
   
   if (gameMode == 0 && score < Integer.parseInt(highScores[gameMode])) {
     highScores[gameMode] = Integer.toString(score);
-    saveStrings("highScores.txt", highScores);
+    saveStrings(highScoreFile, highScores);
   } else if (score > Integer.parseInt(highScores[gameMode])) {
     highScores[gameMode] = Integer.toString(score);
-    saveStrings("highScores.txt", highScores);
+    saveStrings(highScoreFile, highScores);
   }
   
 }
@@ -160,6 +168,6 @@ void updateStats() {
   stats[1] = Integer.toString(newTilesTapped);
   stats[2] = Integer.toString(newTimePlayed);
   
-  saveStrings("stats.txt", stats);
+  saveStrings(statsFile, stats);
   
 }

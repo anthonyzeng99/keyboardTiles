@@ -45,7 +45,8 @@ void resetStats() {
  
  totalGamesPlayed = stats[0];
  totalTilesTapped = stats[1];
- totalTimePlayed = formatTime(Integer.parseInt(stats[2])); saveStrings("highScores.txt", highScores);
- saveStrings("stats.txt", stats);
+ totalTimePlayed = formatTime(Integer.parseInt(stats[2])); 
+ saveStrings(highScoreFile, highScores);
+ saveStrings(statsFile, stats);
  
 }
