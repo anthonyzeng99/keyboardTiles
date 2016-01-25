@@ -25,6 +25,8 @@ String settingsFile = "data/settings.txt"; // File where game settings are store
 int colorSelectorXCor;
 int colorSelectorYCor;
 int tileColorIndex; // Index of tile color selected from tileColors array
+int instrument;
+
 
 
 SoundCipher sc = new SoundCipher(this);
@@ -36,11 +38,11 @@ void setup() {
   stats = loadStrings(statsFile);
   size(480, 720);
   screen = 0;
+  loadFiles();
   newGame();
   totalGamesPlayed = stats[0];
   totalTilesTapped = stats[1];
-  totalTimePlayed = formatTime(Integer.parseInt(stats[2]));
-  
+  println(instrument);
 }
 
 
@@ -90,9 +92,7 @@ void newGame() {
   elapsedTime = 0;
   endTime = 0;
   statsUpdated = false;
-  highScores = loadStrings(highScoreFile);
-  stats = loadStrings(statsFile);
-  settings = loadStrings(settingsFile);
+
   
 }
 
@@ -105,6 +105,8 @@ void screenTracker() {
     statsScreen();
   } else if (screen == 2) {
     colorScreen();   
+  } else if (screen == 3) {
+    instrumentsScreen(); 
   } else if (screen == 10) {
     classicScreen();
   } else if (screen == 11) {
@@ -170,4 +172,16 @@ void updateStats() {
   
   saveStrings(statsFile, stats);
   
+}
+
+void loadFiles() {
+  highScores = loadStrings(highScoreFile);
+  stats = loadStrings(statsFile);
+  settings = loadStrings(settingsFile);
+  
+  totalTimePlayed = formatTime(Integer.parseInt(stats[2]));
+  tileColorIndex = Integer.parseInt(settings[1]);
+  colorSelectorXCor = Integer.parseInt(settings[2]);
+  colorSelectorYCor = Integer.parseInt(settings[3]);
+  instrument = Integer.parseInt(settings[0]);
 }

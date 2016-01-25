@@ -127,6 +127,5 @@ void mousePressed() {
       colorSelectorYCor = 560;
       tileColorIndex = 11;
     }
-    
   }
 }

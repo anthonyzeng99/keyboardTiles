@@ -2,7 +2,7 @@
 int[] tileColors = {#dc143c, #fa0872, #ff1493, #228b22, #32cd32, #7cfc00, #00008b, #00bfff, #00ffff, #9400d3, #ffff00, #000000};
 
 void colorScreen() {
-    
+  
   background(white);
   
   fill(black);
@@ -56,4 +56,8 @@ void colorScreen() {
   rectMode(0);
   stroke(0);
   
+  settings[1] = Integer.toString(tileColorIndex);
+  settings[2] = Integer.toString(colorSelectorXCor);
+  settings[3] = Integer.toString(colorSelectorYCor);
+  saveStrings(settingsFile, settings);
 }
