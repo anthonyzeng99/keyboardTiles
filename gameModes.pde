@@ -139,10 +139,10 @@ void endScreen(int gameNum) {
     updateStats();
     statsUpdated = true;
   }
-  Best Score
+  //Best Score
     textSize(36);
   if (gameMode == 0) {
-    text("BEST " + formatTime(Integer.parseInt(highScores[0])) 240, 410);
+    text("BEST " + formatTime(Integer.parseInt(highScores[0])), 240, 410);
   } else {
      text("BEST " + highScores[gameMode], 240, 410);
   }
