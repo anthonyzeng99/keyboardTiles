@@ -1,8 +1,10 @@
 # keyboardTiles
 
-*Keyboard Tiles is Piano Tiles in processing.
-*To run, open in Processing and click the play button.
-*To play, select a mode with your mouse, and use the ASDF keys to hit the tiles.
+* Keyboard Tiles is Piano Tiles in processing.
+* To run, open in Processing and click the play button.
+* To play, select a mode with your mouse, and use the ASDF keys to hit the tiles.
+* You can change the tile color through the color menu.
+* You can change the instrument through the instrument menu.
 
 ## Modes
 * **Classic Mode -** how long it take you yo tap 50 tiles.
@@ -13,26 +15,26 @@
 ##Changelog:
 
 ###1/20/16 
-  *Started work on the Zen mode and Rush mode.
-  *No new bugs added
+* Started work on the Zen mode and Rush mode.
+* No new bugs added
 
 ###1/21/16 
-  *Continued work on Zen and Rush modes.
-  *Started work on high score system. 
+* Continued work on Zen and Rush modes.
+* Started work on high score system. 
 
 ###1/22/16 
-  *Finished high scores. 
-  *Started working on Zen Mode.
+* Finished high scores. 
+* Started working on Zen Mode.
 
 ###1/23/16
-  *Added stats in addition to high scores.
-  *Started on stats screen that shows stats and high scores.
+* Added stats in addition to high scores.
+* Started on stats screen that shows stats and high scores.
 
 ###1/24/16
- *Removed a bunch of unnecessary/old files
- *Finished the stats screen
- *Started and finished Zen Mode
- *Started and finished Rush Mode
- *Added ability to select tile color.
- *Added ability to select instrument.
- *Added info screen.
+* Removed a bunch of unnecessary/old files
+* Finished the stats screen
+* Started and finished Zen Mode
+* Started and finished Rush Mode
+* Added ability to select tile color.
+* Added ability to select instrument.
+* Added info screen.
