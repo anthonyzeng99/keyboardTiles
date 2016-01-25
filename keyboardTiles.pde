@@ -23,13 +23,12 @@ String totalTimePlayed; // The total time that the game has been played
 String highScoreFile = "data/highScores.txt"; // File where high scores are stored;
 String statsFile = "data/stats.txt"; // File where game stats are stored
 String settingsFile = "data/settings.txt"; // File where game settings are stored/
-int colorSelectorXCor;
-int colorSelectorYCor;
+int colorSelectorXCor; // X-Coordinate of the selector in the color screen
+int colorSelectorYCor; // Y-Coordinate of the selector in the color screen
 int tileColorIndex; // Index of tile color selected from tileColors array
+int instrumentSelectorXCor; // X-Coordinate of the selector in the instruments screen
+int instrumentSelectorYCor; // Y-Coordinate of the selector in the instruments screen
 int instrumentIndex; // Index of instrument selected from instruments array
-int instrumentSelectorXCor;
-int instrumentSelectorYCor;
-
 
 
 SoundCipher sc = new SoundCipher(this);
@@ -161,7 +160,6 @@ void setHighScore() {
     highScores[gameMode] = rushScore;
     saveStrings(highScoreFile, highScores);
   }
-  
 }
 
 
@@ -176,11 +174,10 @@ void updateStats() {
   stats[2] = Integer.toString(newTimePlayed);
 
   saveStrings(statsFile, stats);
-  
 }
 
 void loadFiles() {
-  
+
   highScores = loadStrings(highScoreFile);
   stats = loadStrings(statsFile);
   settings = loadStrings(settingsFile);
