@@ -1,4 +1,4 @@
-int[] instruments = {1,5,14,23,25,41,43,65,74,80};
+int[] instruments = {1,5,14,23,25,41,115,65,74,80};
 
 void instrumentsScreen() {
   
@@ -12,6 +12,13 @@ void instrumentsScreen() {
   
   rectMode(CENTER);
   textSize(26);
+  
+  // InstrumentSelector
+  noStroke();
+  fill(#ffd700);
+  rect(instrumentSelectorXCor,instrumentSelectorYCor,170,120,7);
+  stroke(0);
+  
   
   fill(white);
   rect(140,120,150,100,7);
@@ -28,34 +35,42 @@ void instrumentsScreen() {
   fill(white);
   rect(140,360,150,100,7);
   fill(black);
+  text("Xylophone", 140, 370);
   
   fill(white);
   rect(140,480,150,100,7);
   fill(black);
+  text("Harmonica", 140, 490);
   
   fill(white);
   rect(140,600,150,100,7);
   fill(black);
+  text("Guitar", 140, 610);
   
   fill(white);
   rect(340,120,150,100,7);
   fill(black);
+  text("Violin", 340, 130);
   
   fill(white);
   rect(340,240,150,100,7);
   fill(black);
+  text("Drums", 340, 250);
   
   fill(white);
   rect(340,360,150,100,7);
   fill(black);
+  text("Saxophone", 340, 370);
   
   fill(white);
   rect(340,480,150,100,7);
   fill(black);
+  text("Flute", 340, 490);
   
   fill(white);
   rect(340,600,150,100,7);
   fill(black);
+  text("Ocarina", 340, 610);
   
   
   
@@ -63,7 +78,28 @@ void instrumentsScreen() {
   
    text("Press Enter to return to menu", 240, 694);
   
+  
+  settings[0] = Integer.toString(instrumentIndex);
+  settings[1] = Integer.toString(instrumentSelectorXCor);
+  settings[2] = Integer.toString(instrumentSelectorYCor);
+  saveStrings(settingsFile, settings);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  1.  Acoustic Grand Piano     65.  Soprano Sax

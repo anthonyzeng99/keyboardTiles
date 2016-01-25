@@ -35,7 +35,7 @@ void classicScreen() {
   textAlign(CENTER);
   text(formatTime(elapsedTime), 240, 90);
   textAlign(0);
-
+  
   // End Game when 50 Tiles Tapped;
   if (tilesTapped == 50) {
     gameWL = 1;
@@ -57,23 +57,34 @@ void arcadeScreen() {
 }
 
 void zenScreen() {
+  
   standardGameLayout();
   timeBar();
+  
   // Score - Based on tiles tapped
   fill(235, 16, 16);
   textSize(42);
   textAlign(CENTER);
   text(Integer.toString(tilesTapped), 240, 90);
   textAlign(0);
-  // End Game when Time runs out;
-  //**********************************************************
+  
+  // End Game when Time runs out; 
   if (elapsedTime > 15000) {
     gameWL = 1;
   }
+  
 }
 
 void rushScreen() {
+  
   standardGameLayout();
+  
+  fill(235, 16, 16);
+  textSize(42);
+  textAlign(CENTER);
+  rushScore = nf(tilesTapped / (elapsedTime / 1000.0 + 1), 1, 3);
+  text(formatRushScore(), 240, 90);
+  textAlign(0);
 }
 
 void progressBar() {
@@ -140,10 +151,10 @@ void endScreen(int gameNum) {
 
 
 void generateScore() {
-
-  if (gameMode == 0) {
     textSize(72);
     textAlign(CENTER);
+  if (gameMode == 0) {
+    
     if (gameWL == 1) {
       text(formatTime(endTime), 240, 360);
       score = endTime;
@@ -151,9 +162,11 @@ void generateScore() {
       text("Failed !", 240, 360);
     }
   } else if (gameMode == 1 || gameMode == 2) {
-    textSize(72);
-    textAlign(CENTER);
+   
     text(Integer.toString(tilesTapped), 240, 360);
     score = tilesTapped;
+  } else if (gameMode == 3) {
+    
+    text(rushScore, 240, 360);
   }
 }

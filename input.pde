@@ -45,18 +45,15 @@ void mousePressed() {
       gameMode = 2;
       screen = 12;
     } else if (mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 360) {
-      println ("Rush Mode");
+      gameMode = 3;
+      screen = 13;
     } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 540) {
-      println ("Stats");
       screen = 1;
     } else if (mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 540) {
-      println ("Color");
       screen = 2;
     } else if (mouseX >= 0 && mouseX <= 240 && mouseY >= 0 && mouseY <= 720) {
-      println ("Instrument");
       screen = 3;
     } else if (mouseX >= 240 && mouseX <= 440 && mouseY >= 0 && mouseY <= 720) {
-      println ("Info");
       screen = 4;
     }
   }
@@ -64,7 +61,6 @@ void mousePressed() {
   if (screen == 1) {
 
     if (mouseX >= 180 && mouseX <= 300 & mouseY >= 550 && mouseY <= 610) {
-      println("reset"); 
       resetStats();
     }
   }
@@ -127,5 +123,54 @@ void mousePressed() {
       colorSelectorYCor = 560;
       tileColorIndex = 11;
     }
+  }
+  
+  if (screen == 3) {
+    // Column 1    
+    if (mouseX >= 65 && mouseX <= 215 && mouseY >= 70 && mouseY <= 170) {
+      instrumentSelectorXCor = 140;
+      instrumentSelectorYCor = 120;
+      instrumentIndex = 0;
+    } else if (mouseX >= 65 && mouseX <= 215 && mouseY >= 190 && mouseY <= 290) {
+      instrumentSelectorXCor = 140;
+      instrumentSelectorYCor = 240;
+      instrumentIndex = 1;
+    } else if (mouseX >= 65 && mouseX <= 215 && mouseY >= 310 && mouseY <= 410) {
+      instrumentSelectorXCor = 140;
+      instrumentSelectorYCor = 360;
+      instrumentIndex = 2;
+    } else if (mouseX >= 65 && mouseX <= 215 && mouseY >= 430 && mouseY <= 530) {
+      instrumentSelectorXCor = 140;
+      instrumentSelectorYCor = 480;
+      instrumentIndex = 3;
+    } else if (mouseX >= 65 && mouseX <= 215 && mouseY >= 550 && mouseY <= 650) {
+      instrumentSelectorXCor = 140;
+      instrumentSelectorYCor = 600;
+      instrumentIndex = 4;
+    }
+    
+    // Column 2
+    else if (mouseX >= 265 && mouseX <= 415 && mouseY >= 70 && mouseY <= 170) {
+      instrumentSelectorXCor = 340;
+      instrumentSelectorYCor = 120;
+      instrumentIndex = 5;
+    } else if (mouseX >= 265 && mouseX <= 415 && mouseY >= 190 && mouseY <= 290) {
+      instrumentSelectorXCor = 340;
+      instrumentSelectorYCor = 240;
+      instrumentIndex = 6;
+    } else if (mouseX >= 265 && mouseX <= 415 && mouseY >= 310 && mouseY <= 410) {
+      instrumentSelectorXCor = 340;
+      instrumentSelectorYCor = 360;
+      instrumentIndex = 7;
+    } else if (mouseX >= 265 && mouseX <= 415 && mouseY >= 430 && mouseY <= 530) {
+      instrumentSelectorXCor = 340;
+      instrumentSelectorYCor = 480;
+      instrumentIndex = 8;
+    } else if (mouseX >= 265 && mouseX <= 415 && mouseY >= 550 && mouseY <= 650) {
+      instrumentSelectorXCor = 340;
+      instrumentSelectorYCor = 600;
+      instrumentIndex = 9;
+    }
+    
   }
 }

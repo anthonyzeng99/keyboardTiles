@@ -56,8 +56,8 @@ void colorScreen() {
   rectMode(0);
   stroke(0);
   
-  settings[1] = Integer.toString(tileColorIndex);
-  settings[2] = Integer.toString(colorSelectorXCor);
-  settings[3] = Integer.toString(colorSelectorYCor);
+  settings[3] = Integer.toString(tileColorIndex);
+  settings[4] = Integer.toString(colorSelectorXCor);
+  settings[5] = Integer.toString(colorSelectorYCor);
   saveStrings(settingsFile, settings);
 }
